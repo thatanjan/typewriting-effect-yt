@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Cousine', monospace;
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	background-color: black;
+}
+
+:root {
+	--text-color: #fff;
+}
+
+.text {
+	font-size: 4rem;
+	border-right: 1rem solid var(--text-color);
+	display: inline-block;
+	animation: blink 0.5s step-end infinite alternate; /* name duration cubic-bezier-fucntion how-many-time direction  */
+	letter-spacing: 0.2rem;
+	color: var(--text-color);
+}
+
+.char {
+	color: orange;
+}
+
+@keyframes blink {
+	50% {
+		border-color: transparent;
+	}
+}
+
+@media (min-width: 600px) {
+	.text {
+		font-size: 6rem;
+	}
+}
+
+	@media (min-width: 900px) {
+		.text {
+			font-size: 8rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.text {
+			font-size: 11rem;
+		}
+	}
+
+	@media (min-width: 1600px) {
+		.text {
+			font-size: 14rem;
+		}
+	}
