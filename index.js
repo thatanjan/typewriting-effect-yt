@@ -1,16 +1,16 @@
-const text = document.querySelector('.text')
+const textEl = document.querySelector('.text')
 
 const words = ['Developer', 'Youtuber', 'Blogger'].map(word => word + '.')
 
-let charIndex = 0
 let wordIndex = 0
+let charIndex = 0
 
 let addingChars = true
 let shouldWait = false
 
-let currentWord = words[0]
+let currentWord = words[wordIndex]
 
-const updateCurrentWord = () => {
+const updateCurrWord = () => {
 	wordIndex++
 
 	if (wordIndex === words.length) wordIndex = 0
@@ -20,18 +20,17 @@ const updateCurrentWord = () => {
 
 const addChar = () => {
 	let currChar = currentWord[charIndex]
-	const wordLength = currentWord.length
 
 	const char = document.createElement('span')
 
 	char.innerText = currChar
 	char.classList.add('char')
 
-	text.appendChild(char)
+	textEl.appendChild(char)
 
 	charIndex++
 
-	if (charIndex === wordLength) {
+	if (charIndex === currentWord.length) {
 		charIndex--
 		addingChars = false
 		shouldWait = true
@@ -39,15 +38,16 @@ const addChar = () => {
 }
 
 const removeChar = () => {
-	const char = text.lastElementChild
+	const char = textEl.lastElementChild
 
-	text.removeChild(char)
+	textEl.removeChild(char)
+
 	charIndex--
 
 	if (charIndex < 0) {
 		charIndex++
 		addingChars = true
-		updateCurrentWord()
+		updateCurrWord()
 	}
 }
 
@@ -65,5 +65,6 @@ const runTypewriter = () => {
 
 	setTimeout(runTypewriter, timeout)
 }
+
 
 setTimeout(runTypewriter, 1500)
